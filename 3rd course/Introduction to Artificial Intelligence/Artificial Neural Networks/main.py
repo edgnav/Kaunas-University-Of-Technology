@@ -1,19 +1,22 @@
 import matplotlib.pyplot as plt
 import numpy as np
-#from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression
+from Data import Data
+
+def plot(data, xlabel, ylabel, title):
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.plot(data[0], data[1])
+    plt.show()
 
 
-def read_file():
-    dataMatrix = [[], []]
-    f = open("sunspot.txt", "r")
-    lines = f.readlines()
+if __name__ == "__main__":
+    data = Data("sunspot.txt") 
+    data.read_file()
+    print(len(data.date))
+    #plot(data,  "Metai", "Saulės dėmių aktyvumas", "Saulės dėmių aktyvumas")
 
-    for line in lines:
-        splitLine = line.split('\t')
-        dataMatrix[0].append(int(splitLine[0]))
-        dataMatrix[1].append(int(splitLine[1]))
-    f.close()
-    return dataMatrix
 
-data = read_file()
-print(data)
+    
+    
