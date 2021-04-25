@@ -1,0 +1,29 @@
+[
+    {"name": "Antanas", "careerLength": 1, "salary": 6.95},
+    {"name": "Kazys", "careerLength": 2, "salary": 8.65},
+    {"name": "Petras", "careerLength": 2, "salary": 7.01},
+    {"name": "Sonata", "careerLength": 3, "salary": 9.13},
+    {"name": "Jonas", "careerLength": 1, "salary": 6.95},
+    {"name": "Martynas", "careerLength": 3, "salary": 9.13},
+    {"name": "Arturas", "careerLength": 2, "salary": 7.01},
+    {"name": "Vacys", "careerLength": 2, "salary": 8.65},
+    {"name": "Robertas", "careerLength": 3, "salary": 6.43},
+    {"name": "Mykolas", "careerLength": 1, "salary": 6.95},
+    {"name": "Aldona", "careerLength": 3, "salary": 9.13},
+    {"name": "Asta", "careerLength": 2, "salary": 7.01},
+    {"name": "Viktoras", "careerLength": 2, "salary": 8.65},
+    {"name": "Asta", "careerLength": 5, "salary": 8.32},
+    {"name": "Vytas", "careerLength": 3, "salary": 7.85},
+    {"name": "Petras", "careerLength": 1, "salary": 6.95},
+    {"name": "Jonas", "careerLength": 3, "salary": 9.13},
+    {"name": "Efka", "careerLength": 2, "salary": 7.01},
+    {"name": "Monika", "careerLength": 3, "salary": 6.43},
+    {"name": "Simona", "careerLength": 2, "salary": 8.32},
+    {"name": "Gabija", "careerLength": 1, "salary": 6.95},
+    {"name": "Saule", "careerLength": 3, "salary": 9.13},
+    {"name": "Evaldas", "careerLength": 2, "salary": 7.01},
+    {"name": "Tomas", "careerLength": 3, "salary": 6.43},
+    {"name": "Marija", "careerLength": 2, "salary": 8.32}
+    ]
+
+    

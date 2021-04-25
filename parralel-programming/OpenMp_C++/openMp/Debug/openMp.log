@@ -1,0 +1,5 @@
+﻿  openMp.cpp
+c1xx : warning C4199: two-phase name lookup is not supported for C++/CLI, C++/CX, or OpenMP; use /Zc:twoPhase-
+c:\users\edgar\desktop\openmp\openmp\sha1.hpp(205): warning C4244: 'argument': conversion from 'uint64_t' to 'uint8_t', possible loss of data
+c:\users\edgar\desktop\openmp\openmp\openmp.cpp(205): warning C4018: '<': signed/unsigned mismatch
+  openMp.vcxproj -> C:\Users\edgar\Desktop\openMp\Debug\openMp.exe
