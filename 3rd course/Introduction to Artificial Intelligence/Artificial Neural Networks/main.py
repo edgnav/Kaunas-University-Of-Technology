@@ -13,15 +13,15 @@ def plot(data, xlabel, ylabel, title):
 def split_data(sunspots, n):
     P = []
     T = []
-    a = [1,2,3,4,5,6,7,8,9]
 
     for i in range(len(sunspots)-n):
         temp = []
         for j in range(i, i + n):
             temp.append(sunspots[j])
         P.append(temp)
-        T.append(i+n)
+        T.append(sunspots[i+n])
     return P, T
+
 
 def plot_3D(P, T):
     fig = plt.figure()
@@ -39,6 +39,15 @@ def plot_3D(P, T):
     ax.scatter(axis1,axis2,T)
     plt.show();    
 
+def plotComparison(years, Tu, Tsu, xlabel, ylabel, title):
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.plot(years, Tsu, 'red', label="Predictions")
+    plt.plot(years, Tu, 'blue', label="True values")
+    plt.legend()
+    plt.show()
+
 
 if __name__ == "__main__":
     data = Data("sunspot.txt") 
@@ -50,7 +59,35 @@ if __name__ == "__main__":
     P, T = split_data(data.spots,2)
     #6--------------------------------
     #plot_3D(P,T)
-    #model = LinearRegression() #creating an instance of the class LinearRegression
+    #7
+    Lu = 200 #amount of training data 
+    PuTrain = np.array(P[:Lu])
+    TuTrain = np.array(T[:Lu])
+    #8
+    autoregressionModel = LinearRegression().fit(PuTrain, TuTrain)
+    #9
+    print(autoregressionModel.coef_)
+    #r_sq = autoregressionModel.score(PuTrain, TuTrain)
+    #print('coefficient of determination:', r_sq)
+
+    #10
+    #train data
+    TsuTrain = autoregressionModel.predict(PuTrain)
+
+    plotComparison(data.date[0:Lu],TuTrain,TsuTrain,
+    "Metai",
+    "Saulės dėmių skaičius",
+    "Testavimo ir prognozavimo duomenų palyginimas")
+
+    #test data
+    PuTest = np.array(P[Lu:])
+    TuTest = np.array(T[Lu:])
+    TsuTest = autoregressionModel.predict(PuTest)
+
+    plotComparison(data.date[Lu:len(PuTest)+Lu],TuTest,TsuTest,
+    "Metai",
+    "Saulės dėmių skaičius",
+    "Testavimo ir prognozavimo duomenų palyginimas")
 
     
 
