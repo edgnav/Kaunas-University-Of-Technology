@@ -7,7 +7,21 @@ def plot(data, xlabel, ylabel, title):
     plt.title(title)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
+    plt.plot(data.date, data.spots)
+    plt.show()
+
+def plotError(data, xlabel, ylabel, title):
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
     plt.plot(data[0], data[1])
+    plt.show()
+
+def plotErrorHist(title, xlabel, ylabel, testError):
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.hist(testError)
     plt.show()
 
 def split_data(sunspots, n):
@@ -74,20 +88,39 @@ if __name__ == "__main__":
     #train data
     TsuTrain = autoregressionModel.predict(PuTrain)
 
-    plotComparison(data.date[0:Lu],TuTrain,TsuTrain,
-    "Metai",
-    "Saulės dėmių skaičius",
-    "Testavimo ir prognozavimo duomenų palyginimas")
+    #plotComparison(data.date[0:Lu],TuTrain,TsuTrain,"Metai","Saulės dėmių skaičius","Testavimo ir prognozavimo duomenų palyginimas su apmokymo duomenimis")
 
     #test data
     PuTest = np.array(P[Lu:])
     TuTest = np.array(T[Lu:])
     TsuTest = autoregressionModel.predict(PuTest)
 
-    plotComparison(data.date[Lu:len(PuTest)+Lu],TuTest,TsuTest,
-    "Metai",
-    "Saulės dėmių skaičius",
-    "Testavimo ir prognozavimo duomenų palyginimas")
+    
+    length = len(PuTest)+Lu #PuTest array is shorter, thats why we need to describe new length
+    #plotComparison(data.date[Lu:length],TuTest,TsuTest,"Metai","Saulės dėmių skaičius","Testavimo ir prognozavimo duomenų palyginimas su nematytais duomenimis")
+
+    #11
+    testError = TuTest - TsuTest
+    
+    #plotError([data.date[200:length], testError], "Prognozės klaida", "Metai", "Klaidos dydis")
+
+    #12
+    plotErrorHist("Klaidų dydžių histograma", "Klaidos dydis", "Dažnis", testError)
+    
+    #13
+
+    sum=0
+    for i in range(1, len(testError)):
+        sum += (testError[i])**2
+    MSE = (1/length)*sum
+    print("MSE = ",MSE)
+
+    MAD=np.median(abs(testError))
+    print("MAD = ",MAD)
+
+    #14
+    
+
 
     
 
