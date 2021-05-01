@@ -117,13 +117,3 @@ if __name__ == "__main__":
 
     MAD=np.median(abs(testError))
     print("MAD = ",MAD)
-
-    #14
-    
-
-
-    
-
-
-    
-    
